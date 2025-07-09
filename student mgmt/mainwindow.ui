@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1117</width>
+    <height>718</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Student Management Admin Page</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resource.qrc">
+    <normaloff>:/img/pic/1.png</normaloff>:/img/pic/1.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+background-color: rgb(190, 255, 205);
+
+</string>
+  </property>
+  <property name="toolButtonStyle">
+   <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label_add">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>70</y>
+      <width>91</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_show">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>240</y>
+      <width>101</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bell MT</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_update">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>440</y>
+      <width>91</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bell MT</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_search">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>150</y>
+      <width>101</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bell MT</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_delete">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>340</y>
+      <width>91</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bell MT</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnAddStudent">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>160</y>
+      <width>131</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bell MT</family>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+   background-color: rgb(40, 12, 255);
+    color: white;         
+    padding: 8px 16px;             /* Inner spacing */
+    font-weight: bold;
+border-radius: 20px ;
+border: 3px solid black;
+   
+}
+
+QPushButton:hover {
+    background-color: #0056b3;     /* Darker blue on hover */
+}
+
+QPushButton:pressed {
+    background-color: #003d80;     /* Even darker on press */
+} </string>
+    </property>
+    <property name="text">
+     <string>Add Student</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnShowTable">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>340</y>
+      <width>141</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bell MT</family>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+   background-color: rgb(40, 12, 255);
+    color: white;         
+    padding: 8px 16px;             /* Inner spacing */
+    font-weight: bold;
+border-radius: 20px ;
+border: 3px solid black;
+   
+}
+
+QPushButton:hover {
+    background-color: #0056b3;     /* Darker blue on hover */
+}
+
+QPushButton:pressed {
+    background-color: #003d80;     /* Even darker on press */
+} </string>
+    </property>
+    <property name="text">
+     <string>Show Student</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnupdatestudent">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>530</y>
+      <width>151</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bell MT</family>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+   background-color: rgb(40, 12, 255);
+    color: white;                          /* White text */
+    padding: 8px 16px;             /* Inner spacing */
+    font-weight: bold;
+border-radius: 20px ;
+border: 3px solid black;
+   
+}
+
+QPushButton:hover {
+    background-color: #0056b3;     /* Darker blue on hover */
+}
+
+QPushButton:pressed {
+    background-color: #003d80;     /* Even darker on press */
+}</string>
+    </property>
+    <property name="text">
+     <string>Update Student</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnsearchstudent">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>250</y>
+      <width>151</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bell MT</family>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+   background-color: rgb(40, 12, 255);
+    color: white;         
+    padding: 8px 16px;             /* Inner spacing */
+    font-weight: bold;
+border-radius: 20px ;
+border: 3px solid black;
+   
+}
+
+QPushButton:hover {
+    background-color: #0056b3;     /* Darker blue on hover */
+}
+
+QPushButton:pressed {
+    background-color: #003d80;     /* Even darker on press */
+} </string>
+    </property>
+    <property name="text">
+     <string>Search Student</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btndeleteStudent">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>430</y>
+      <width>151</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bell MT</family>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(40, 12, 255);
+    color: white;                           /* White text */
+    padding: 8px 16px;             /* Inner spacing */
+    font-weight: bold;
+border-radius: 20px ;
+border: 3px solid black;
+   
+}
+
+QPushButton:hover {
+    background-color: #0056b3;     /* Darker blue on hover */
+}
+
+QPushButton:pressed {
+    background-color: #003d80;     /* Even darker on press */
+}</string>
+    </property>
+    <property name="text">
+     <string>Delete Student</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="tableStudents">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>180</y>
+      <width>641</width>
+      <height>421</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Poor Richard</family>
+      <pointsize>12</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 12pt &quot;Poor Richard&quot;;
+ border: 1px solid black;
+QTableWidget {
+	
+  border-radius: 4px;       /* Apply rounding */
+  gridline-color: black;
+}
+
+QHeaderView::section { 
+  border: 2px solid black;
+  padding: 5px;
+}
+
+QTableWidget::item {
+  border: 2px solid black;              /* Remove inner cell border if needed */
+  padding: 4px;
+}</string>
+    </property>
+    <attribute name="horizontalHeaderDefaultSectionSize">
+     <number>127</number>
+    </attribute>
+    <column>
+     <property name="text">
+      <string>Name</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Roll No</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Branch</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Gender</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Address</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>181</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(44, 126, 188);
+image: url(:/img/pic/New folder/6681213.png)</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>0</y>
+      <width>1071</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bell MT</family>
+      <pointsize>30</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(44, 126, 188);
+color: rgb(255, 255, 255);
+/*BORDER: 4px  solid black ;
+</string>
+    </property>
+    <property name="text">
+     <string>ADMIN MENU</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnlogout">
+    <property name="geometry">
+     <rect>
+      <x>932</x>
+      <y>630</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+   
+	background-color: rgb(209, 6, 9);
+    color: white;                          /* White text */
+    padding: 8px 16px;             /* Inner spacing */
+    font-weight: bold;
+border-radius: 20px ;
+border: 3px solid black;
+   
+}
+
+QPushButton:hover {
+    background-color: #0056b3;     /* Darker blue on hover */
+}
+
+QPushButton:pressed {
+    background-color: #003d80;     /* Even darker on press */
+}</string>
+    </property>
+    <property name="text">
+     <string>Logout</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
+ <connections/>
+</ui>
