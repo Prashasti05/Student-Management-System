@@ -28,9 +28,9 @@ It includes a secure *Login/Signup system* and a clean GUI to manage student rec
 
 ## Screenshots
 
-| Login Screen | Admin Dashboard |
-|--------------|-----------------|
-| ![Login](screenshots/login.png) | ![Dashboard](screenshots/dashboard.png) |
+| Login Screen | Sign Up  | Admin Dashboard |
+|--------------|----------|-----------------|
+| ![Login](screenshots/login.png) | ![Signup](screenshots/login.png) | ![Dashboard](screenshots/dashboard.png) |
 
 > 📌 *Make sure you add screenshots to a /screenshots folder in your repo to display them.*
 
