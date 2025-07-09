@@ -30,8 +30,7 @@ It includes a secure *Login/Signup system* and a clean GUI to manage student rec
 
 | Login Screen | Sign Up  | Admin Dashboard |
 |--------------|----------|-----------------|
-| ![Login](https://github.com/Prashasti05/Student-Management-System/blob/05a23f0b432882a49a8e4e180205ac01973264a7/Screenshot_loginPage.png) |
- ![Signup](https://github.com/Prashasti05/Student-Management-System/blob/2ad595cf7d8f636fb030cdc6e0a0af9a3b8b8f86/Screenshot_RegisterPage.png) | ![Dashboard](https://github.com/Prashasti05/Student-Management-System/blob/3e3ed1d9ec76824fec59f2b0a893d2d630afa436/Screenshot_adminMenu.png) |
+| ![Login](https://github.com/Prashasti05/Student-Management-System/blob/05a23f0b432882a49a8e4e180205ac01973264a7/Screenshot_loginPage.png) |![Signup](https://github.com/Prashasti05/Student-Management-System/blob/2ad595cf7d8f636fb030cdc6e0a0af9a3b8b8f86/Screenshot_RegisterPage.png) | ![Dashboard (https://github.com/Prashasti05/Student-Management-System/blob/3e3ed1d9ec76824fec59f2b0a893d2d630afa436/Screenshot_adminMenu.png) |
 
 
 ---
