@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>pic/14314173.png</file>
+        <file>pic/add-user_760792.png</file>
+        <file>pic/search-user_11326123.png</file>
+        <file>pic/update2.png</file>
+        <file>pic/1.png</file>
+        <file>pic/2.png</file>
+        <file>pic/3.png</file>
+        <file>pic/4.png</file>
+        <file>pic/6.png</file>
+        <file>pic/4596193.png</file>
+        <file>pic/6681213.png</file>
+        <file>pic/New folder/4596193.png</file>
+        <file>pic/New folder/6681213.png</file>
+        <file>pic/New folder/1.jpg</file>
+        <file>pic/New folder/35020245_8262271.jpg</file>
+        <file>pic/group_18476667.png</file>
+    </qresource>
+</RCC>
