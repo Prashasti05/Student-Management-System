@@ -208,7 +208,7 @@ void MainWindow::on_btndeleteStudent_clicked()
 }
 
 
-//--------------------------------update student button clicked-----------------------------------
+//----------------------update student button clicked-----------------------------------
 void MainWindow::on_btnUpdateStudent_clicked()
 {
     int currentRow = ui->tableStudents->currentRow();                         // Get selected row
@@ -245,27 +245,34 @@ void MainWindow::on_btnUpdateStudent_clicked()
         updateStudentInCSV(originalRoll, updatedName, updatedRoll, updatedBranch, updatedGender, updatedAddress);
         saveTableToFile();
 
-       // studentList.append(s);
     }
 }
 
-
-
-//--------------------------------search student button clicked-----------------------------------
+//---------------------search student button clicked-----------------------------------
 
 void MainWindow::on_btnsearchstudent_clicked()
 {
-    searchstudentDialog dialog(studentList,this);  // Open search dialog with student list
+    studentList.clear();
+    for (int row = 0; row < ui->tableStudents->rowCount(); ++row) {
+        Student s;
+        s.name = ui->tableStudents->item(row, 0)->text();
+        s.rollNo = ui->tableStudents->item(row, 1)->text();
+        s.branch = ui->tableStudents->item(row, 2)->text();
+        s.gender = ui->tableStudents->item(row, 3)->text();
+        s.address = ui->tableStudents->item(row, 4)->text();
+        studentList.append(s);
+    }
+    searchstudentDialog dialog(studentList,this);  
     dialog.exec();
 
 }
 
-//---------------------------logout button clicked-------------------------------
+//---------------------------logout ------------------------------
 void MainWindow::on_btnlogout_clicked()
 {
-    this->close();                                 // Close main window
+    this->close();                                 
 
-    LoginWindow *login =new LoginWindow();         // Create login window
-    login->exec();                                 // Show login window
+    LoginWindow *login =new LoginWindow();        
+    login->exec();                                 
 }
 
