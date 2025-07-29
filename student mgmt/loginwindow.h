@@ -1,14 +1,14 @@
 #ifndef LOGINWINDOW_H
 #define LOGINWINDOW_H
 
-#include <QDialog>      //widget used to create dialog window
+#include <QDialog>      
 #include <QMap>
 
 namespace Ui {
 class LoginWindow;
 }
 
-class LoginWindow : public QDialog     //it is custom dialog Inherits from QDialog
+class LoginWindow : public QDialog     
 {
     Q_OBJECT
 
@@ -23,9 +23,9 @@ private slots:
 
 
 private:
-    Ui::LoginWindow *ui;    // Pointer to the UI class generated from the .ui file
+    Ui::LoginWindow *ui;    
 
-    QMap<QString,QString> users; //qmap container to store username,password
+    QMap<QString,QString> users;    //qmap container to store username,password
 
     void loadUsers();
     void saveLastUser(const QString &username);  //helper func to store recent user
