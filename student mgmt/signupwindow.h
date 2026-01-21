@@ -1,23 +1,23 @@
 #ifndef SIGNUPWINDOW_H
 #define SIGNUPWINDOW_H
 
-#include <QWidget>      //Base class for all UI objects in Qt
-#include <QDialog>     //widget used to create dialog window
+#include <QWidget>      
+#include <QDialog>     
 
 namespace Ui {
 class signupwindow;
 }
 
-class signupwindow : public QDialog   //class signupwindow is custom dialog,Inherits from QDialog
+class signupwindow : public QDialog   
 {
-    Q_OBJECT     // Macro needed by all Qt classes that use signals/slots
+    Q_OBJECT     
 
 public:
     explicit signupwindow(QWidget *parent = nullptr);
     ~signupwindow();
 
 /*signals:
-    void userRegistered(const QString &username, const QString &password);     // Signal emitted when new user is registered nd Passes username and password to whoever connected to this signal
+    void userRegistered(const QString &username, const QString &password);     
 */
 
 private slots:
@@ -25,7 +25,8 @@ private slots:
     void on_pushButton_signin_clicked();
 
 private:
-    Ui::signupwindow *ui;  // Pointer to the UI class generated from the .ui file
+    Ui::signupwindow *ui;  
 };
 
 #endif // SIGNUPWINDOW_H
+
