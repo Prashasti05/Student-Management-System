@@ -1,7 +1,6 @@
 #include "studenttabledialog.h"
 #include "ui_studenttabledialog.h"
-#include"student.h"                    //class to access student properties
-//  #include"addstudentdialog.h"
+#include"student.h"                    
 #include <QFile>
 
 StudentTableDialog::StudentTableDialog(const QVector<Student> &students, QWidget *parent)
@@ -32,16 +31,16 @@ void StudentTableDialog::loadDataFromFile()
 {
     QFile file("students.csv");                              //Creates a QFile obj
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {  //Opens file in read-only mode.
-        QTextStream in(&file);                              //Creates text stream to read from file line by li
-        ui->tableDialogWidget->setRowCount(0);              //Clears all existing rows before loading new data.
+        QTextStream in(&file);                             
+        ui->tableDialogWidget->setRowCount(0);              
 
-        while (!in.atEnd()) {                                //Loop until the end of the file.
-            QString line = in.readLine();                    //reads one line from the CSV.
-            QStringList fields = line.split(",");            //Splits line into list of fields based on commas.
-            int row = ui->tableDialogWidget->rowCount();     //Get current number of rows
-            ui->tableDialogWidget->insertRow(row);           //Adds a new empty row at the end.
+        while (!in.atEnd()) {                                
+            QString line = in.readLine();                    
+            QStringList fields = line.split(",");            
+            int row = ui->tableDialogWidget->rowCount();     
+            ui->tableDialogWidget->insertRow(row);           
 
-            for (int col = 0; col < fields.size(); ++col) {   //Fills each column in tht row wid corespondng field from line
+            for (int col = 0; col < fields.size(); ++col) {   
                 ui->tableDialogWidget->setItem(row, col, new QTableWidgetItem(fields[col]));
             }
         }
@@ -49,10 +48,10 @@ void StudentTableDialog::loadDataFromFile()
         file.close();
     }
 }
-void StudentTableDialog::showEvent(QShowEvent *event)   //function overrides the built-in showEvent() of QDialog.
+void StudentTableDialog::showEvent(QShowEvent *event)   
 {
-    QDialog::showEvent(event);                       // automatically called every time the dialog is shown.
-    loadDataFromFile();                // Loads latest data from file into table,so user always sees up-to-date info
+    QDialog::showEvent(event);                       
+    loadDataFromFile();               
 }
 
 
@@ -60,4 +59,5 @@ StudentTableDialog::~StudentTableDialog()
 {
     delete ui;
 }
+
 
