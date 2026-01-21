@@ -1,10 +1,10 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include"addstudentdialog.h"                 // Dialog to add a student
+#include"addstudentdialog.h"                 
 #include"student.h"
 #include <QTextStream>
 #include <QFile>
-#include "studenttabledialog.h"                 // Dialog to show student
+#include "studenttabledialog.h"                
 #include<QMessageBox>
 #include"upatestudentdialog.h"
 #include<QTableWidgetItem>
@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent)     //constructor
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-    ui->setupUi(this);                       //Sets up all the UI elements (buttons, labels, etc.) f
+    ui->setupUi(this);                       //Sets up all the UI elements (buttons, labels, etc.) 
 
 
     QPixmap addpic (":/img/pic/add-user_760792.png");      //load icon into qpixmap
@@ -42,22 +42,22 @@ MainWindow::MainWindow(QWidget *parent)     //constructor
 
 
 
-    QFile file("students.csv");                              // Create a QFile obj
-    if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {  // Try to open the file in read-only mode
+    QFile file("students.csv");                              
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {  
 
-        QTextStream in(&file);                               // Create QTextStream to read from file
-        while (!in.atEnd()) {                                // Loop through the file
-            QString line = in.readLine();                    // Read one line from the file
-            QStringList fields = line.split(",");            // Split the line using comma as delimiter
-            if (fields.size() == 5) {                        // Check if line has exactly 5 fields
-                Student s;                                   // Create a Student obj to store data
+        QTextStream in(&file);                              
+        while (!in.atEnd()) {                               
+            QString line = in.readLine();                    
+            QStringList fields = line.split(",");            
+            if (fields.size() == 5) {                        
+                Student s;                                   
                 s.name = fields[0];
-                s.rollNo = fields[1];                 // Assign values from CSV fields to Student obj
+                s.rollNo = fields[1];                 
                 s.branch = fields[2];
                 s.gender = fields[3];
                 s.address = fields[4];
                 addStudentToTable(s);                        // Show in table
-                studentList.append(s);                       //also add student to internal list
+                studentList.append(s);                       
             }
         }
         file.close();
@@ -81,10 +81,10 @@ MainWindow::~MainWindow()
 
   //add studentinfo to table widget
 void MainWindow::addStudentToTable(const Student &s) {
-    int row = ui->tableStudents->rowCount();                    // Get curr number of rows
-    ui->tableStudents->insertRow(row);                          // Insert a new empty row at tht posn
+    int row = ui->tableStudents->rowCount();                    
+    ui->tableStudents->insertRow(row);                          
 
-    ui->tableStudents->setItem(row, 0, new QTableWidgetItem(s.name));  // Set each col's cell value in new row with student data
+    ui->tableStudents->setItem(row, 0, new QTableWidgetItem(s.name));  
     ui->tableStudents->setItem(row, 1, new QTableWidgetItem(s.rollNo));
     ui->tableStudents->setItem(row, 2, new QTableWidgetItem(s.branch));
     ui->tableStudents->setItem(row, 3, new QTableWidgetItem(s.gender));
@@ -94,9 +94,9 @@ void MainWindow::addStudentToTable(const Student &s) {
 
 //used when adding/append 1 new student entry
 void MainWindow::saveStudentToFile(const Student &s){
-    QFile file("students.csv");                               //open csv file
-    if(file.open(QIODevice::Append | QIODevice::Text)){      // Open in append mode
-        QTextStream out(&file);                      // Create stream to write text seprated with commas
+    QFile file("students.csv");                              
+    if(file.open(QIODevice::Append | QIODevice::Text)){      
+        QTextStream out(&file);                      
         out<<s.name <<"," <<s.rollNo <<"," <<s.branch <<"," <<s.gender <<"," <<s.address<<"\n";
         file.close();
     }
@@ -105,15 +105,15 @@ void MainWindow::saveStudentToFile(const Student &s){
 //used when modifying/deleting already entered entries
 void MainWindow::saveTableToFile()
 {
-    QFile file("students.csv");                                   //QFile obj is created that points to file
-    if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {      // file is open in WriteOnly mode,ie Existing contnt will be overwritten
-        QTextStream out(&file);                                   // Stream to write
-        for (int row = 0; row < ui->tableStudents->rowCount(); ++row) {     // a loop to go through each row
-            QStringList rowData;                                            //temp list to hold column values of one row.
-            for (int col = 0; col < ui->tableStudents->columnCount(); ++col) { //Nested loop iterates over each col in curr row
-                rowData << ui->tableStudents->item(row, col)->text();       //For curr cell at pos(row,col),it extracts txt content nd appends it to rowData.
+    QFile file("students.csv");                                   
+    if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {      
+        QTextStream out(&file);                                   
+        for (int row = 0; row < ui->tableStudents->rowCount(); ++row) {     
+            QStringList rowData;                                           
+            for (int col = 0; col < ui->tableStudents->columnCount(); ++col) { 
+                rowData << ui->tableStudents->item(row, col)->text();       
             }
-            out << rowData.join(",") << "\n";                         //converts list into a comma-separated string.
+            out << rowData.join(",") << "\n";                       
         }
         file.close();
     }
@@ -129,30 +129,30 @@ void MainWindow::updateStudentInCSV(const QString &originalRoll, const QString &
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         QTextStream in(&file);
         while (!in.atEnd()) {
-            QString line = in.readLine();             // Read each line (one student)
+            QString line = in.readLine();             
             QStringList fields = line.split(",");
-            students.append(fields);                  // Store fields (columns) in list
+            students.append(fields);                 
         }
         file.close();
     }
 
     // Find and update the matching student by originalRoll
     for (QStringList &student : students) {
-        if (student.size() >= 2 && student[1] == originalRoll) {   //check if list exist, student[1] is Roll No ==orig roll
+        if (student.size() >= 2 && student[1] == originalRoll) {   
             student[0] = name;
-            student[1] = roll;                 //update all fields
+            student[1] = roll;                 
             student[2] = branch;
             student[3] = gender;
             student[4] = address;
-            break;                               //Exit loop after updating
+            break;                               
         }
     }
 
     //Save the updated list back into the file
     if (file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate)) {
-        QTextStream out(&file);                  //file opened in write mode with truncate which erases old content
+        QTextStream out(&file);                 
         for (const QStringList &student : students) {
-            out << student.join(",") << "\n";        // Convert list back to CSV line
+            out << student.join(",") << "\n";        
         }
         file.close();
     }
@@ -166,34 +166,34 @@ void MainWindow::updateStudentInCSV(const QString &originalRoll, const QString &
 //---------------------------add Student button clicked---------------------------
 void MainWindow::on_btnAddStudent_clicked()
 {
-    AddStudentDialog dialog;                        // Create add-student dialog win
-    if(dialog.exec()==QDialog::Accepted){           // Show dialog and check if user clicked OK
-        Student s= dialog.getStudent();              // getter func Gets student info entered by user
+    AddStudentDialog dialog;                        
+    if(dialog.exec()==QDialog::Accepted){          
+        Student s= dialog.getStudent();              
         addStudentToTable(s);
         saveStudentToFile(s);
-        studentList.append(s);              // add student to table,file,internal list
+        studentList.append(s);             
     }
 }
 //--------------------------------show student button clicked-----------------------------------
 void MainWindow::on_btnShowTable_clicked()
 {
-    StudentTableDialog dialog(studentList,this);        // Create dialog and pass student list
+    StudentTableDialog dialog(studentList,this);        
     dialog.exec();
 }
 
 //--------------------------------delete student button clicked-----------------------------------
 void MainWindow::on_btndeleteStudent_clicked()
 {
-    int row=ui->tableStudents->currentRow();               // Get selected row
-    if(row >=0){                                           // Make sure a row is selected
-        ui->tableStudents->removeRow(row);                 // Remove from table
-        saveTableToFile();                                 // Save updated table to file
+    int row=ui->tableStudents->currentRow();               
+    if(row >=0){                                           
+        ui->tableStudents->removeRow(row);                 
+        saveTableToFile();                                 
 
-    if(row<studentList.size()){                            // Also remove from internal list
+    if(row<studentList.size()){                            
         studentList.removeAt(row);
     }
 
-    QFile file("students.csv");              // Rewrite file with updated student list
+    QFile file("students.csv");              
     if(file.open(QIODevice::WriteOnly| QIODevice::Text)){
         QTextStream out(&file);
         for(const Student &s :studentList){
@@ -226,10 +226,10 @@ void MainWindow::on_btnUpdateStudent_clicked()
     QString originalRoll = roll;                       // Check to find the correct record in file
 
 
-   UpateStudentDialog dialog(this);                     //open update dialog
-    dialog.setStudentData(name, roll, branch, gender, address);   // and Pre-fills input field with curr data
+   UpateStudentDialog dialog(this);                     
+    dialog.setStudentData(name, roll, branch, gender, address);   
 
-    if (dialog.exec() == QDialog::Accepted) {       //Shows the dialog,If user clicks OK, proceed to upd data.
+    if (dialog.exec() == QDialog::Accepted) {       
         QString updatedName, updatedRoll, updatedBranch, updatedGender, updatedAddress;
         //get updated data entered by user from dialog.
         dialog.getStudentData(updatedName, updatedRoll, updatedBranch, updatedGender, updatedAddress);
@@ -275,4 +275,5 @@ void MainWindow::on_btnlogout_clicked()
     LoginWindow *login =new LoginWindow();        
     login->exec();                                 
 }
+
 
