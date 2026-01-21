@@ -1,12 +1,12 @@
-#ifndef MAINWINDOW_H        //Header guards — prevent file from being included more than once during compilation,
+#ifndef MAINWINDOW_H        
 #define MAINWINDOW_H
 
-#include <QMainWindow>          // Includes the base class QMainWindow,
+#include <QMainWindow>          
 
-#include "student.h"                 //defines student class,search dialog
+#include "student.h"                 
 #include"searchstudentdialog.h"
-#include<QTableWidget>                //used to display student data in table form
-#include<QVector>                    //container, used to store Student objects
+#include<QTableWidget>                
+#include<QVector>                   
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -14,7 +14,7 @@ class MainWindow;
 }
 QT_END_NAMESPACE
 
-class MainWindow : public QMainWindow      // class MainWindow, which inherits from Qt’s QMainWindow.
+class MainWindow : public QMainWindow      
 {
     Q_OBJECT
 
@@ -36,14 +36,15 @@ private:
     Ui::MainWindow *ui;            //Pointer to the UI class, which manages widgets
     QVector<Student>studentList;  //copy of vector container students
 
-    void addStudentToTable(const Student &s);        //adds Student To File-->adds one student since paramter is given
-    void saveStudentToFile(const Student &s);        //saves Student To File
-    void updateStudentInCSV(const QString &originalRoll, const QString &name, //Updates existing data in file( roll number + all fields)
+    void addStudentToTable(const Student &s);        
+    void saveStudentToFile(const Student &s);        
+    void updateStudentInCSV(const QString &originalRoll, const QString &name, 
                             const QString &roll, const QString &branch,
                             const QString &gender, const QString &address);
 
-    void saveTableToFile();        //Saves all students in table after app closes or updating/deleting etc
+    void saveTableToFile();        
 
 
 };
 #endif // MAINWINDOW_H
+
