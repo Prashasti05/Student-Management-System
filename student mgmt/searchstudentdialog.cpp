@@ -1,13 +1,13 @@
-#include "searchstudentdialog.h"                 //Includes header file for this class
-#include "ui_searchstudentdialog.h"              //Includes ato generated ui class from ui file
-#include"mainwindow.h"                           //Includes header for MainWindow
+#include "searchstudentdialog.h"                 
+#include "ui_searchstudentdialog.h"              
+#include"mainwindow.h"                          
 #include<QMessageBox>
-//#include<QTableWidget>                           //Imports QTableWidget, used for displaying data
+//#include<QTableWidget>                           
 
 searchstudentDialog::searchstudentDialog(const QVector<Student> &students, QWidget *parent)
     : QDialog(parent)
-    , ui(new Ui::searchstudentDialog),   //Create new instance of UI class,Initialize member variable studentList with passed students
-      studentList(students)             //create a local  editable copy of student -- studentList for searching/updating
+    , ui(new Ui::searchstudentDialog),   
+      studentList(students)             
 {
     ui->setupUi(this);
    // connect(ui->btnSearch, &QPushButton::clicked,this, &QDialog::accept);
@@ -21,13 +21,13 @@ searchstudentDialog::~searchstudentDialog()
 
 void searchstudentDialog::on_btnSearch_clicked()
 {
-    QString keyword = ui->lineEdit_search->text().trimmed();                                  // Get text from search box and trim spaces
+    QString keyword = ui->lineEdit_search->text().trimmed();                                  
 
-    if (keyword.isEmpty()) {                                                                  // Check if search box is empty
+    if (keyword.isEmpty()) {                                                                 
         QMessageBox::information(this, "Search", "Please enter a name or roll number.");
         return;
     }
-    for (const Student &s : studentList) {                                                  // Loop through each student in the list
+    for (const Student &s : studentList) {                                                  
         if (s.name.contains(keyword, Qt::CaseInsensitive) || s.rollNo == keyword) {         // Check if name contains keyword (case-insensitive) || roll no matches
 
             // Create formatted string with student details
@@ -42,6 +42,7 @@ void searchstudentDialog::on_btnSearch_clicked()
 
     QMessageBox::information(this, "Not Found", "No matching student found.");         // No match found
 }
+
 
 
 
